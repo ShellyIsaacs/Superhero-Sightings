@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!--google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
+
+        <!--style sheet-->
+        <link href="css/styles.css" type="text/css" rel="stylesheet"/>
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+
+        <title>Add Sighting - Super People Sightings</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <header class="row justify-content-center">
+                <h1><a href="home" id="logo" class="btn-warning">S<span style="color: red">P</span>S</a>  - Super <span style="color: red">People</span> Sightings</h1>
+            </header>
+
+            <nav class="navbar navbar-expand-lg justify-content-center">
+                <div class="btn-group flex-wrap" role="group" aria-label="Button group with nested dropdown">
+                    <div class="btn-group" role="group">
+                        <button id="supers" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Supers
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="supers">
+                            <a class="dropdown-item" href="/super">Add New Super</a>
+                            <a class="dropdown-item" href="/supers">Browse Supers</a>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button id="powers" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Powers
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="powers">
+                            <a class="dropdown-item" href="/power">Add New Power</a>
+                            <a class="dropdown-item" href="/powers">Browse Powers</a>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button id="orgs" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Organizations
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="orgs">
+                            <a class="dropdown-item" href="/organization">Add New Organization</a>
+                            <a class="dropdown-item" href="/organizations">Browse Organizations</a>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button id="locations" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Locations
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="locations">
+                            <a class="dropdown-item" href="/location">Add New Location</a>
+                            <a class="dropdown-item" href="/locations">Browse Locations</a>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button id="sightings" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sightings
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="sightings">
+                            <a class="dropdown-item" href="/sighting">Add New Sighting</a>
+                            <a class="dropdown-item" href="/sightings">Browse Sightings</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/sighting"><button type = "button" class="btn btn-warning" id="report-sighting-btn">REPORT A SIGHTING!!!</button></a>
+            </nav>
+
+            <div class = "row" style="margin: 10px 0px"> 
+                <div class = "col-md-6 offset-md-3" style="background-color: rgba(255, 255, 255, .75)">
+
+                    <div class = "row justify-content-center" style="margin: 25px 10px 5px 10px">
+                        <h2>Add Sighting</h2>
+                    </div>
+                    <hr style="border-color: black">
+
+                    <div class ="row justify-content-center body-text" style="padding: 10px">
+                        <form class = "col-md-10 offset-md-1" action="sighting" method="POST">
+                            <label for="date">SIGHTING DATE:</label>
+                            <input type="datetime-local" name="date" id="date" th:max="${now}" th:value="${date}" required/>
+                            <br>
+                            <label for="heroes" style="margin-top: 15px">SUPERS SEEN:</label>
+                            <select class="form-control" multiple id="heroes" name="heroes" required>
+                                <option th:each="hero:${heroes}" th:value="${hero.id}" th:text="${hero.name}"></option>
+                            </select>
+                            <label for="location" style="margin-top: 15px">LOCATION:</label>
+                            <select class="form-control" id="location" name="location">
+                                <option th:each="location:${locations}" th:value="${location.id}" th:text="${location.name}"></option>
+                            </select>
+                            
+                            <div class="row justify-content-center">
+                                <button type="submit" class="btn btn-primary view-edit-delete-link" style="margin: 15px">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

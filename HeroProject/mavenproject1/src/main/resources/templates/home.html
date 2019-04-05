@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!--google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
+
+        <!--style sheet-->
+        <link href="css/styles.css" type="text/css" rel="stylesheet"/>
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+
+        <title>Super People Sightings</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <header class="row justify-content-center">
+                <h1><a href="home" id="logo" class="btn-warning">S<span style="color: red">P</span>S</a>  - Super <span style="color: red">People</span> Sightings</h1>
+            </header>
+
+            <nav class="navbar navbar-expand-lg justify-content-center">
+                <div class="btn-group flex-wrap" role="group" aria-label="Button group with nested dropdown">
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Supers
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="/super">Add New Super</a>
+                            <a class="dropdown-item" href="/supers">Browse Supers</a>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Powers
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="/power">Add New Power</a>
+                            <a class="dropdown-item" href="/powers">Browse Powers</a>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Organizations
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="/organization">Add New Organization</a>
+                            <a class="dropdown-item" href="/organizations">Browse Organizations</a>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Locations
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="/location">Add New Location</a>
+                            <a class="dropdown-item" href="/locations">Browse Locations</a>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sightings
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="/sighting">Add New Sighting</a>
+                            <a class="dropdown-item" href="/sightings">Browse Sightings</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/sighting"><button type = "button" class="btn btn-warning" id="report-sighting-btn">REPORT A SIGHTING!!!</button></a>
+            </nav>
+
+            <div class = "row" style="margin: 20px 10px 30px 10px">
+                <div class ="col-md-5 " style="background-color: rgba(255, 255, 255, .75)">
+                    <aside style="margin: 10px ">
+                        <h2 style="font-size: 25px">ABOUT US</h2>
+                        <p>We here at SPS are dedicated to documenting our encounters with super heroes and villains. <em style="color: red">WE BELIEVE SUPERS ARE PEOPLE JUST LIKE US!!!</em> Sure, they might go out and kick ass once in a while, or save the earth from rampaging aliens. But mostly, they do regular people things, just like the rest of us.</p>
+                        <p>So, whether your local superheroes are grabbing shawarma together or fending off the alien invaders, <em style="color: red">WE WANT TO KNOW!!!</em> If there's a shifty villain plotting the downfall of humankind at your local Starbucks, check it into our sightings.</p>
+                        <p>Do you want to know about the heroes and villains other people have documented? Here at SPS you can <em style="color: red">LEARN ABOUT SUPERS NEAR YOU</em> with our existing database. Explore the powers that are out there, research supers organizations, and of course, check out your supers' favorite places to chill!</p>
+                    </aside>
+                </div>
+                <div class = "col-md-7">
+                    <section style="background-color: rgba(0, 0, 0, .5)">
+                        <div class = "row justify-content-center" style="padding 10px">
+                            <h2 style="font-size: 25px; color: whitesmoke; text-transform: uppercase; padding: 10px">RECENT SIGHTINGS</h2>
+                        </div>
+                        <div class ="row justify-content-center" th:each="sighting : ${sightings}" style="padding: 0px 25px">
+                            <p style = "color: whitesmoke; font-family: 'Kalam', cursive">
+                                <span th:text="${sighting.date}"></span>
+                                - 
+                                <span th:each="hero : ${sighting.heroes}">
+                                    <span th:text="${hero.name}"></span>
+                                    - 
+                                </span>
+                                seen at 
+                                <span th:text="${sighting.location.name}"></span>
+                                in 
+                                <span th:text="${sighting.location.city}"></span>
+                                <span th:text="${sighting.location.state}"></span>
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

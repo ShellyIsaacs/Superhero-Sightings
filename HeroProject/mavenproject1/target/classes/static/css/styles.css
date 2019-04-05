@@ -1,0 +1,84 @@
+
+#logo {
+    color: black;
+    border: #007FF6 4px solid;
+    border-radius: 40px;
+    padding: 0px 10px;
+}
+
+#logo:hover{
+    color: black;
+    background-color: rgba(255, 255, 255, .30);
+    text-decoration: none;
+    border: red 5px solid;
+    border-radius: 40px;
+    padding: 0px 10px;
+    font-weight: bold;
+}
+
+body, html {
+    height: 100%;
+}
+
+body { 
+    background-image: url("/images/nick-hiatt-sv-hd-02.jpg");
+    height: 100%; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    padding: 10px; 
+    margin: 20px 20px 0px 20px;
+}
+
+.btn-outline-danger {
+    color: red;
+    border: red solid 1px;
+}
+
+.btn-outline-danger:hover {
+    background-color: gold;
+    color: red;
+    border: red solid 2px;
+}
+
+.btn-warning {
+    background-color: gold;
+}
+
+#report-sighting-btn {
+    color: red;
+    font-weight: bold;
+    border: #007FF6 solid 3px;
+    background-color: gold;
+}
+
+#report-sighting-btn:hover {
+    color: red;
+    border: red solid 4px;
+    background-color: rgba(255, 255, 255, .30);
+}
+
+h1 {
+    font-family: 'Permanent Marker', cursive; 
+    font-size: 50px;
+}
+
+.view-edit-delete-link {
+    border-radius: 30px;
+}
+
+h2 {
+     font-size: 2em; 
+     color: black;
+     font-family: 'Permanent Marker', cursive;
+}
+
+.body-text {
+    color: black; 
+    font-size: 1.2em;
+    font-family: 'Kalam', cursive;
+}

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.sg.SuperHeroes.data.HeroSightingDaoImplTest
+-------------------------------------------------------------------------------
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.133 s - in com.sg.SuperHeroes.data.HeroSightingDaoImplTest

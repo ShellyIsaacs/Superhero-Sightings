@@ -1,0 +1,14 @@
+com/sg/SuperHeroes/dao/HeroDaoImpl$PowerMapper.class
+com/sg/SuperHeroes/model/Hero.class
+com/sg/SuperHeroes/dao/HeroDaoImpl$LocationMapper.class
+com/sg/SuperHeroes/model/Sighting.class
+com/sg/SuperHeroes/dao/HeroDao.class
+com/sg/SuperHeroes/model/Organization.class
+com/sg/SuperHeroes/dao/HeroDaoImpl$HeroMapper.class
+com/sg/SuperHeroes/dao/HeroDaoImpl$SightingMapper.class
+com/sg/SuperHeroes/ops/HeroController.class
+com/sg/SuperHeroes/model/Power.class
+com/sg/SuperHeroes/App.class
+com/sg/SuperHeroes/model/Location.class
+com/sg/SuperHeroes/dao/HeroDaoImpl$OrgMapper.class
+com/sg/SuperHeroes/dao/HeroDaoImpl.class
